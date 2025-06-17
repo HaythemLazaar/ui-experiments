@@ -1,0 +1,187 @@
+[
+    {
+      "id": "PRO-1",
+      "title": "Implement User Authentication",
+      "description": "Set up user authentication using OAuth 2.0.",
+      "status": "in-progress",
+      "priority": "high",
+      "createdAt": "2025-06-16T12:00:00Z",
+      "updatedAt": "2025-06-17T10:30:00Z",
+      "assignee": {
+        "id": "user123",
+        "name": "John Doe",
+        "avatarUrl": "https://example.com/avatar.jpg"
+      }
+    },
+    {
+      "id": "PRO-2",
+      "title": "Design Database Schema",
+      "description": "Design the database schema for the new customer relationship management (CRM) system.",
+      "status": "in-review",
+      "priority": "medium",
+      "createdAt": "2025-06-15T09:45:00Z",
+      "updatedAt": "2025-06-17T08:15:00Z",
+      "assignee": {
+        "id": "user456",
+        "name": "Jane Smith",
+        "avatarUrl": "https://example.com/another_avatar.png"
+      }
+    },
+    {
+      "id": "PRO-3",
+      "title": "Write Unit Tests",
+      "status": "to-do",
+      "priority": "high",
+      "createdAt": "2025-06-17T11:00:00Z",
+      "updatedAt": "2025-06-17T11:00:00Z",
+      "assignee": {
+        "id": "user789",
+        "name": "David Lee"
+      }
+    },
+    {
+      "id": "PRO-4",
+      "title": "Deploy to Staging Server",
+      "description": "Deploy the latest version of the application to the staging server for testing.",
+      "status": "backlog",
+      "priority": "no-priority",
+      "createdAt": "2025-06-16T14:30:00Z",
+      "updatedAt": "2025-06-16T14:30:00Z",
+      "assignee": {
+        "id": "user101",
+        "name": "Alice Johnson"
+      }
+    },
+    {
+      "id": "PRO-5",
+      "title": "Develop User Interface for Dashboard",
+      "description": "Create the front-end user interface for the main dashboard, including data visualization.",
+      "status": "in-progress",
+      "priority": "high",
+      "createdAt": "2025-06-15T10:00:00Z",
+      "updatedAt": "2025-06-17T14:00:00Z",
+      "assignee": {
+        "id": "user202",
+        "name": "Bob Williams",
+        "avatarUrl": "https://example.com/bob_avatar.jpg"
+      }
+    },
+    {
+      "id": "PRO-6",
+      "title": "Integrate Payment Gateway",
+      "description": "Integrate with Stripe for secure payment processing.",
+      "status": "to-do",
+      "priority": "high",
+      "createdAt": "2025-06-17T09:00:00Z",
+      "updatedAt": "2025-06-17T09:00:00Z",
+      "assignee": {
+        "id": "user303",
+        "name": "Charlie Brown"
+      }
+    },
+    {
+      "id": "PRO-7",
+      "title": "Perform Security Audit",
+      "description": "Conduct a comprehensive security audit of the application and infrastructure.",
+      "status": "backlog",
+      "priority": "critical",
+      "createdAt": "2025-06-14T16:00:00Z",
+      "updatedAt": "2025-06-14T16:00:00Z",
+      "assignee": {
+        "id": "user404",
+        "name": "Diana Prince"
+      }
+    },
+    {
+      "id": "PRO-8",
+      "title": "Write API Documentation",
+      "description": "Document all API endpoints, request/response formats, and authentication requirements.",
+      "status": "in-progress",
+      "priority": "medium",
+      "createdAt": "2025-06-16T09:00:00Z",
+      "updatedAt": "2025-06-17T11:45:00Z",
+      "assignee": {
+        "id": "user505",
+        "name": "Eve Adams",
+        "avatarUrl": "https://example.com/eve_avatar.png"
+      }
+    },
+    {
+      "id": "PRO-9",
+      "title": "Refactor Legacy Code",
+      "description": "Refactor old, unmaintainable code in the inventory management module.",
+      "status": "to-do",
+      "priority": "low",
+      "createdAt": "2025-06-17T10:15:00Z",
+      "updatedAt": "2025-06-17T10:15:00Z",
+      "assignee": {
+        "id": "user606",
+        "name": "Frank Green"
+      }
+    },
+    {
+      "id": "PRO-10",
+      "title": "Set Up CI/CD Pipeline",
+      "description": "Configure Jenkins for continuous integration and continuous deployment.",
+      "status": "in-review",
+      "priority": "high",
+      "createdAt": "2025-06-15T14:00:00Z",
+      "updatedAt": "2025-06-17T15:00:00Z",
+      "assignee": {
+        "id": "user707",
+        "name": "Grace Hopper"
+      }
+    },
+    {
+      "id": "PRO-11",
+      "title": "Conduct User Acceptance Testing (UAT)",
+      "description": "Coordinate and oversee user acceptance testing with key stakeholders.",
+      "status": "backlog",
+      "priority": "medium",
+      "createdAt": "2025-06-16T11:00:00Z",
+      "updatedAt": "2025-06-16T11:00:00Z",
+      "assignee": {
+        "id": "user808",
+        "name": "Harry Potter"
+      }
+    },
+    {
+      "id": "PRO-12",
+      "title": "Optimize Database Queries",
+      "description": "Analyze and optimize slow database queries to improve application performance.",
+      "status": "to-do",
+      "priority": "high",
+      "createdAt": "2025-06-17T13:00:00Z",
+      "updatedAt": "2025-06-17T13:00:00Z",
+      "assignee": {
+        "id": "user909",
+        "name": "Ivy White"
+      }
+    },
+    {
+      "id": "PRO-13",
+      "title": "Research New Technologies for AI Integration",
+      "description": "Explore potential AI/ML frameworks and libraries for future application enhancements.",
+      "status": "backlog",
+      "priority": "low",
+      "createdAt": "2025-06-14T10:00:00Z",
+      "updatedAt": "2025-06-14T10:00:00Z",
+      "assignee": {
+        "id": "user111",
+        "name": "Jack Black"
+      }
+    },
+    {
+      "id": "PRO-14",
+      "title": "Prepare Release Notes",
+      "description": "Compile comprehensive release notes for the upcoming production deployment.",
+      "status": "to-do",
+      "priority": "medium",
+      "createdAt": "2025-06-17T09:30:00Z",
+      "updatedAt": "2025-06-17T09:30:00Z",
+      "assignee": {
+        "id": "user222",
+        "name": "Karen King"
+      }
+    }
+  ]
