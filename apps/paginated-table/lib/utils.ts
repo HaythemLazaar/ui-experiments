@@ -25,3 +25,11 @@ export function formatDateRange(
     : `${formattedFrom} - ${formattedTo}`;
   return formattedRange;
 }
+
+export function formatDashedKey(status: string) {
+  return status
+    .replace("-", " ")
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
