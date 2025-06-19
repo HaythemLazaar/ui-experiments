@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} ${manrope.className} ${geistMono.variable} antialiased`}
+        className={`${manrope.variable} ${manrope.className} ${geistMono.variable} antialiased relative text-[13px]`}
       >
         <Providers>{children}</Providers>
       </body>

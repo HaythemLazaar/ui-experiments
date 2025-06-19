@@ -105,7 +105,7 @@ export function PaginatedTable<
       )}
       <Table className="[&_td]:border-border [&_th]:border-border border-separate border-spacing-0 [&_tfoot_td]:border-t [&_th]:border-b [&_th]:border-t [&_tr]:border-none [&_tr:not(:last-child)_td]:border-b">
         <TableHeader
-          className="bg-neutral-100  shadow-xs sticky z-10"
+          className="bg-neutral-100 shadow-xs sticky z-10"
           style={{ top: stickyHeaderTop - 1 }}
         >
           {table.getHeaderGroups().map((headerGroup) => (
@@ -151,14 +151,14 @@ export function PaginatedTable<
             <TableRow>
               <TableCell
                 colSpan={columns.length}
-                className="text-center border-x py-4 font-semibold text-text-200 bg-white"
+                className="text-center border-x py-4 font-semibold text-neutral-500 bg-white"
               >
                 <div className="flex items-center justify-center gap-2">
                   <MdError className="size-4 text-red-500" />
                   Error loading {tableType}
                 </div>
                 <button
-                  className="text-sm text-text-200 mt-2"
+                  className="text-sm text-neutral-500 mt-2"
                   onClick={refetch}
                 >
                   Try again
@@ -187,7 +187,7 @@ export function PaginatedTable<
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className="text-center py-4 border-x bg-white h-40 font-semibold text-text-200"
+                  className="text-center py-4 border-x bg-white h-40 font-semibold text-neutral-500"
                 >
                   No {tableType} found
                 </TableCell>
@@ -200,10 +200,10 @@ export function PaginatedTable<
                       <TableRow className="bg-background-100">
                         <TableCell
                           colSpan={columns.length}
-                          className="text-left py-1 border-x bg-neutral-100/40 font-semibold text-text-200"
+                          className="text-left py-1 border-x bg-neutral-100/40 font-semibold text-neutral-500"
                         >
                           <div className="flex items-center gap-2 font-mono">
-                            <div className="text-xs text-text-200 bg-white px-2 rounded-md border">
+                            <div className="text-xs text-neutral-500 bg-white px-2 rounded-md border">
                               {format(
                                 row.original[
                                   groupByDateColumn as keyof R
@@ -264,11 +264,11 @@ export function PaginatedTable<
                   {isLoading ? (
                     <Skeleton className="size-7" />
                   ) : (
-                    <span className="text-text text-lg font-semibold">
+                    <span className="text-neutral-700 text-lg font-semibold">
                       {data?.total}
                     </span>
                   )}
-                  <span className="text-text-200 text-xs font-semibold uppercase ml-1 mt-2">
+                  <span className="text-neutral-500 text-xs font-semibold uppercase ml-1 mt-2">
                     {tableType}
                   </span>
                 </div>
@@ -280,14 +280,14 @@ export function PaginatedTable<
                     {isLoading ? (
                       <Skeleton className="h-7 w-10" />
                     ) : (
-                      <span className="text-text text-[13px] font-semibold mr-2">
+                      <span className="text-neutral-700 text-[13px] font-semibold mr-2">
                         {currentPage} of {data?.totalPages}
                       </span>
                     )}
                     <Button
                       variant="outline"
                       size="icon"
-                      className="rounded-lg rounded-r-none size-7 disabled:bg-background border-none shadow-none disabled:text-text-200/30 disabled:opacity-100 disabled:cursor-not-allowed"
+                      className="rounded-lg rounded-r-none size-7 disabled:bg-background border-none shadow-none disabled:text-neutral-500/30 disabled:opacity-100 disabled:cursor-not-allowed"
                       onClick={() => setCurrentPage(currentPage - 1)}
                       disabled={currentPage === 1 || isLoading || !!error}
                     >
@@ -296,7 +296,7 @@ export function PaginatedTable<
                     <Button
                       variant="outline"
                       size="icon"
-                      className="rounded-lg rounded-l-none size-7 disabled:bg-background border-none shadow-none disabled:text-text-200/30 disabled:opacity-100 disabled:cursor-not-allowed"
+                      className="rounded-lg rounded-l-none size-7 disabled:bg-background border-none shadow-none disabled:text-neutral-500/30 disabled:opacity-100 disabled:cursor-not-allowed"
                       onClick={() => setCurrentPage(currentPage + 1)}
                       disabled={
                         currentPage === data?.totalPages || isLoading || !!error
