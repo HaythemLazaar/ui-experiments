@@ -367,7 +367,7 @@
     "title": "Migration to Cloud Infrastructure",
     "description": "Migrate existing on-premise servers to AWS cloud infrastructure.",
     "status": "backlog",
-    "priority": "critical",
+    "priority": "urgent",
     "createdAt": "2025-06-16T10:00:00Z",
     "updatedAt": "2025-06-16T10:00:00Z",
     "assignee": {
@@ -519,9 +519,9 @@
   {
     "id": "PRO-38",
     "title": "Set Up Disaster Recovery Plan",
-    "description": "Develop and document a disaster recovery plan for critical systems.",
+    "description": "Develop and document a disaster recovery plan for urgent systems.",
     "status": "backlog",
-    "priority": "critical",
+    "priority": "urgent",
     "createdAt": "2025-06-15T10:30:00Z",
     "updatedAt": "2025-06-15T10:30:00Z",
     "assignee": {
@@ -630,7 +630,7 @@
   },
   {
     "id": "PRO-46",
-    "title": "Conduct Code Review for Critical Modules",
+    "title": "Conduct Code Review for urgent Modules",
     "description": "Perform a thorough code review for core functionalities to ensure quality and best practices.",
     "status": "to-do",
     "priority": "high",
@@ -675,7 +675,7 @@
     "title": "Develop AI-powered Recommendation Engine",
     "description": "Build an AI-driven recommendation engine for personalized user experiences.",
     "status": "backlog",
-    "priority": "critical",
+    "priority": "urgent",
     "createdAt": "2025-06-14T14:00:00Z",
     "updatedAt": "2025-06-14T14:00:00Z",
     "assignee": {

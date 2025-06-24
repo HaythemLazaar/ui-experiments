@@ -2,7 +2,7 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { PaginatedTable } from "@/components/paginated-table";
-import { useQuery } from "@tanstack/react-query";
+import { queryOptions, useQuery } from "@tanstack/react-query";
 import { getTasks } from "@/server/tasks";
 import { usePagination } from "@/hooks/use-pagination";
 import { useState } from "react";
@@ -12,6 +12,13 @@ import { TbCircle, TbCircleDotted } from "react-icons/tb";
 import { BiSolidCircleHalf, BiSolidCircleThreeQuarter } from "react-icons/bi";
 import { Check } from "lucide-react";
 import { BsFillExclamationSquareFill } from "react-icons/bs";
+import { useSearch } from "@/hooks/use-search";
+
+const tasksQueryOptions = ({page, limit, query}: {page: number, limit: number, query: string}) =>
+  queryOptions({
+    queryKey: ["tasks", { page, limit, query }],
+    queryFn: () => getTasks({ page, limit, query }),
+  });
 
 export default function PaginatedTableDemo() {
   // toggle refetch, lodaing, error
@@ -20,10 +27,8 @@ export default function PaginatedTableDemo() {
     "normal" | "loading" | "error" | "success"
   >("normal");
   const { currentPage } = usePagination();
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ["tasks", { currentPage }],
-    queryFn: () => getTasks({ page: currentPage, limit: 30 }),
-  });
+  const { searchQuery } = useSearch();
+  const { data, isLoading, error, refetch } = useQuery(tasksQueryOptions({ page: currentPage, limit: 30, query: searchQuery }));
   return (
     <div className="flex flex-col flex-1 w-full max-w-[1000px] mx-auto py-10 items-center">
       <PaginatedTable
@@ -107,7 +112,7 @@ function StatusCell({ status }: { status: Task["status"] }) {
       <BiSolidCircleThreeQuarter className="size-4 scale-90 p-px rounded-full border-2 border-emerald-500 text-emerald-500" />
     ),
     done: (
-      <Check className="size-4 text-indigo-500 border-2 border-indigo-500 rounded-full" />
+      <Check className="size-4 text-white bg-indigo-700 scale-90 rounded-full p-[3px]" strokeWidth={3} />
     ),
     "to-do": <TbCircle className="size-4 text-neutral-500" strokeWidth={2.5} />,
     backlog: <TbCircleDotted className="size-4 text-neutral-500" />,

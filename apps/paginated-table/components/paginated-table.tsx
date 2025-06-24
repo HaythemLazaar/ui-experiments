@@ -18,14 +18,14 @@ import {
 } from "@/components/ui/table";
 import { cn } from "@/lib/utils";
 import { ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
-import { Fragment, useRef } from "react";
+import { Fragment } from "react";
 import { MdError } from "react-icons/md";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { usePagination } from "@/hooks/use-pagination";
 import { SearchBar } from "./search-bar";
 import { format, isSameMonth } from "date-fns";
-import { useInView } from "motion/react";
+import { useInView } from "react-intersection-observer";
 
 export function PaginatedTable<
   T extends { data: R[]; total: number; totalPages: number },
@@ -88,8 +88,10 @@ export function PaginatedTable<
     );
     return !isNewMonth;
   }
-  const footerEndRef = useRef<HTMLSpanElement>(null);
-  const footerIsSticky = !useInView(footerEndRef);
+  // const footerEndRef = useRef<HTMLSpanElement>(null);
+  // const footerIsSticky = !useInView(footerEndRef);
+  const { ref: footerEndRef, inView: footerIsNotSticky } = useInView();
+
   return (
     <div className="rounded-md shadow-sm w-full">
       {search && <SearchBar placeholder={placeholder} />}
@@ -103,7 +105,7 @@ export function PaginatedTable<
           {children}
         </div>
       )}
-      <Table className="[&_td]:border-border [&_th]:border-border border-separate border-spacing-0 [&_tfoot_td]:border-t [&_th]:border-b [&_th]:border-t [&_tr]:border-none [&_tr:not(:last-child)_td]:border-b">
+      <Table className="overflow-x-auto [&_td]:border-border [&_th]:border-border border-separate border-spacing-0 [&_tfoot_td]:border-t [&_th]:border-b [&_th]:border-t [&_tr]:border-none [&_tr:not(:last-child)_td]:border-b">
         <TableHeader
           className="bg-neutral-100 shadow-xs sticky z-10"
           style={{ top: stickyHeaderTop - 1 }}
@@ -112,7 +114,7 @@ export function PaginatedTable<
             <TableRow
               key={headerGroup.id}
               className={cn(
-                "[&>th]:text-[13px] [&>th]:font-semibold [&>th]:h-8 bg-transparent",
+                "[&>th]:text-[13px] [&>th]:font-semibold [&>th]:h-8 bg-transparent [&>th]:text-neutral-700",
                 !search && !children && "rounded-t-md"
               )}
             >
@@ -256,16 +258,16 @@ export function PaginatedTable<
               colSpan={columns.length}
               className={cn(
                 "text-center border border-b-0",
-                !footerIsSticky && "rounded-b-md border-b"
+                footerIsNotSticky && "rounded-b-md border-b"
               )}
             >
               <div className="flex items-center justify-between">
                 <div className="flex">
                   {isLoading ? (
-                    <Skeleton className="size-7" />
+                    <Skeleton className="size-7 bg-neutral-200" />
                   ) : (
                     <span className="text-neutral-700 text-lg font-semibold">
-                      {data?.total}
+                      {data?.total || 0}
                     </span>
                   )}
                   <span className="text-neutral-500 text-xs font-semibold uppercase ml-1 mt-2">
