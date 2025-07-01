@@ -2,6 +2,20 @@ import type { Metadata } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
+import React from "react";
+import {
+  SidebarProvider,
+  Sidebar,
+  SidebarTrigger,
+  SidebarContent,
+  SidebarMenuButton,
+  SidebarGroup,
+  SidebarGroupLabel,
+} from "@/components/ui/sidebar";
+import { Plus, Search } from "lucide-react";
+import { SearchChats } from "@/components/search-chats";
+import { ChatHistory } from "@/components/chat-history";
+import { ChatInput } from "@/components/chat-input";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,7 +42,56 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${inter.className} ${geistMono.variable} antialiased relative text-[13px] bg-neutral-50 tracking-tight`}
       >
-        <Providers>{children}</Providers>
+        <Providers>
+          <SidebarProvider>
+            <Sidebar
+              collapsible="icon"
+              className="border-r border-neutral-200 group-data-[collapsible=icon]:[&>div]:!bg-neutral-50 [&>div]:bg-neutral-100"
+            >
+              <div className="flex flex-col h-full">
+                <div className="flex items-center p-2">
+                  <SidebarTrigger className="p-2 size-8" />
+                </div>
+                <SidebarContent className="flex flex-col gap-4 flex-1">
+                  <SidebarGroup className="[&>button]:hover:bg-neutral-200 [&>button]:h-fit [&>button]:gap-3 text-neutral-700 gap-2">
+                    <SidebarMenuButton
+                      size="sm"
+                      tooltip="New Chat"
+                      className="hover:!bg-purple-200 h-fit gap-3"
+                    >
+                      <Plus className="size-4 bg-purple-700 text-white rounded-full ring-4 ring-purple-700" />
+                      <span className="text-purple-700 font-semibold">
+                        New Chat
+                      </span>
+                    </SidebarMenuButton>
+                    <SearchChats>
+                      <SidebarMenuButton
+                        size="sm"
+                        tooltip="Search Chats"
+                        className="hover:bg-neutral-200 h-fit gap-3"
+                      >
+                        <Search />
+                        <span className="font-normal">Search Chats</span>
+                      </SidebarMenuButton>
+                    </SearchChats>
+                  </SidebarGroup>
+                  <SidebarGroup>
+                    <SidebarGroupLabel className="h-fit">
+                      Recent
+                    </SidebarGroupLabel>
+                    <ChatHistory />
+                  </SidebarGroup>
+                </SidebarContent>
+              </div>
+            </Sidebar>
+            <div className="flex flex-1 flex-col w-full shadow-sm z-1000 py-4">
+              <div className="flex flex-1 flex-col w-full max-w-3xl justify-center mx-auto gap-0">
+                {children}
+              </div>
+              <ChatInput />
+            </div>
+          </SidebarProvider>
+        </Providers>
       </body>
     </html>
   );
